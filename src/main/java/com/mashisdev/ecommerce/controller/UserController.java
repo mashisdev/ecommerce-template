@@ -3,6 +3,7 @@ package com.mashisdev.ecommerce.controller;
 import com.mashisdev.ecommerce.dto.UserDto;
 import com.mashisdev.ecommerce.exceptions.AlreadyExistsException;
 import com.mashisdev.ecommerce.exceptions.ResourceNotFoundException;
+import com.mashisdev.ecommerce.exceptions.UserNotFoundException;
 import com.mashisdev.ecommerce.model.User;
 import com.mashisdev.ecommerce.request.CreateUserRequest;
 import com.mashisdev.ecommerce.request.UserUpdateRequest;
@@ -27,7 +28,7 @@ public class UserController {
             User user = userService.getUserById(userId);
             UserDto userDto = userService.convertUserToDto(user);
             return ResponseEntity.ok(new ApiResponse("Success", userDto));
-        } catch (ResourceNotFoundException e) {
+        } catch (UserNotFoundException e) {
             return ResponseEntity.status(NOT_FOUND).body(new ApiResponse(e.getMessage(), null));
         }
     }
@@ -48,7 +49,7 @@ public class UserController {
             User user = userService.updateUser(request, userId);
             UserDto userDto = userService.convertUserToDto(user);
             return ResponseEntity.ok(new ApiResponse("Update User Success!", userDto));
-        } catch (ResourceNotFoundException e) {
+        } catch (UserNotFoundException e) {
            return ResponseEntity.status(NOT_FOUND).body(new ApiResponse(e.getMessage(), null));
         }
     }
@@ -57,7 +58,7 @@ public class UserController {
         try {
             userService.deleteUser(userId);
             return ResponseEntity.ok(new ApiResponse("Delete User Success!", null));
-        } catch (ResourceNotFoundException e) {
+        } catch (UserNotFoundException e) {
             return ResponseEntity.status(NOT_FOUND).body(new ApiResponse(e.getMessage(), null));
         }
     }
