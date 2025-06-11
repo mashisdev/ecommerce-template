@@ -1,14 +1,12 @@
 # 🛒 E-Commerce Backend API
 
-This project is a robust and extensible e-commerce backend built with Java and Spring Boot, based on a [freeCodeCamp project](https://www.youtube.com/watch?v=oGhc5Z-WJSw) and significantly enhanced with **production-ready features** to improve security, scalability, and maintainability. 🚀
+This project is a **e-commerce backend** built with **Java** and **Spring Boot**, following the **microservices architecture** to ensure modularity, flexibility, and maintainability. It is inspired by the [freeCodeCamp monolithic version](https://www.youtube.com/watch?v=oGhc5Z-WJSw).
 
 ## ✨Features
 
 ✅ **Request validation**: enforces strict input validation to prevent malformed or malicious data.
 
 ✅ **Pagination & sorting**: relevant endpoints (such as products/all) support flexible pagination and sorting for scalability and frontend integration.
-
-✅ **Admin endpoints**: specific routes are marked for `ADMIN` access to allow secure role-based access control if security is added.
 
 🐳 **Docker support**
 
